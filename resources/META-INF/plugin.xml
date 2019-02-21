@@ -1,0 +1,46 @@
+<idea-plugin>
+    <id>com.github.parfoismeng.plugin.butterknife</id>
+    <name>Android-ButterKnife-Plugin-Plus-KT</name>
+    <version>1.0</version>
+    <vendor email="youshi520000@163.com" url="https://github.com/ParfoisMeng/Android-ButterKnife-Plugin-Plus-KT">ParfoisMeng</vendor>
+
+    <description><![CDATA[Android-ButterKnife-Plugin-Plus，支持Kotlin。个人情景：基类kt，子类java，原插件无法使用。<br>]]></description>
+
+    <change-notes><![CDATA[
+      <b>1.0.0</b>
+      <ul>
+         <li>包含Android-ButterKnife-Plugin-Plus (Android ButterKnife Zelezny v1.6.0).</li>
+         <li>可以在Kotlin中使用.</li>
+       </ul>
+    ]]>
+    </change-notes>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="173.0"/>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+    <actions>
+        <!-- Add your actions here -->
+        <action class="com.avast.android.butterknifezelezny.InjectAction" id="AddInjectionsAction"
+                text="Generate _Butterknife Injections"
+                icon="/icons/butterknife-zelezny.png"
+                description="Plugin for generating ButterKnife injections from selected layout XMLs in activities/fragments/adapters"
+        >
+            <keyboard-shortcut
+                    keymap="$default"
+                    first-keystroke="shift control B"/>
+            <add-to-group group-id="GenerateGroup"/>
+        </action>
+    </actions>
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationConfigurable instance="com.avast.android.butterknifezelezny.Settings"/>
+        <codeInsight.lineMarkerProvider language="JAVA"
+                                        implementationClass="com.avast.android.butterknifezelezny.navigation.NavigationMarkerProvider"/>
+    </extensions>
+
+</idea-plugin>
