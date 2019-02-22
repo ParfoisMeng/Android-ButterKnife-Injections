@@ -1,0 +1,8 @@
+.idea
+*.iml
+.iml
+/out
+/bin
+
+#mac store
+.DS_Store
