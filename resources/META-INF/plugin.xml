@@ -1,20 +1,31 @@
 <idea-plugin>
     <id>com.github.parfoismeng.plugin.butterknife</id>
-    <name>Android-ButterKnife-Plugin-Plus-KT</name>
+    <name>Android-ButterKnife-Injections (Support Kotlin)</name>
     <version>1.0</version>
-    <vendor email="youshi520000@163.com" url="https://github.com/ParfoisMeng/Android-ButterKnife-Plugin-Plus-KT">
+    <vendor email="youshi520000@163.com" url="https://github.com/ParfoisMeng">
         ParfoisMeng
     </vendor>
 
-    <description><![CDATA[Android-ButterKnife-Plugin-Plus-KT，支持Kotlin。<br>个人情景：基类kt，子类java，原插件无法使用。<br>]]></description>
+    <description>
+        <![CDATA[
+            Android-ButterKnife-Injections (Support Kotlin)<br>
+            <br>
+            Applicable when the parent class is a kt file and the child class is a java file.<br>
+            The original plugin could not be used, and I have not found a plugin that meets my needs. Simply self-clone the "android-butterknife-zelezny" source code, modify the adjustment to make this plugin.<br>
+        ]]>
+    </description>
 
-    <change-notes><![CDATA[
-      <b>1.0.0</b>
-      <ul>
-         <li>包含Android-ButterKnife-Plugin-Plus (Android ButterKnife Zelezny v1.6.0).</li>
-         <li>可以在Kotlin中使用.</li>
-       </ul>
-    ]]>
+    <change-notes>
+        <![CDATA[
+            <b>1.0.0</b>
+            <ul>
+                <li>Includes all features of Android ButterKnife Zelezny v1.6.0.</li>
+                <li>Add function allows you to choose whether to initialize the butterKnife in activities/fragments.</li>
+                <li>Add function allows you to choose whether to use ButterKnife in Lib (about R or R2).</li>
+                <li>In the Android Studio settings interface, you can set the default value of the function.</li>
+                <li>No error is reported when the parent class is a Activity/Fragment/Adapter Java class of the Kotlin file.</li>
+            </ul>
+        ]]>
     </change-notes>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
