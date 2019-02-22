@@ -89,7 +89,7 @@ public class InjectAction extends BaseGenerateAction implements IConfirmListener
 
 
         if (Utils.getInjectCount(elements) > 0 || Utils.getClickCount(elements) > 0) { // generate injections
-            new InjectWriter(file, getTargetClass(editor, file), "Generate Injections", elements, layout.getName(), fieldNamePrefix, createHolder,initButterKnife).execute();
+            new InjectWriter(file, getTargetClass(editor, file), "Generate Injections", elements, layout.getName(), fieldNamePrefix, createHolder, initButterKnife).execute();
         } else { // just notify user about no element selected
             Utils.showInfoNotification(project, "No injection was selected");
         }
@@ -129,8 +129,30 @@ public class InjectAction extends BaseGenerateAction implements IConfirmListener
         String[] annotations;
         String id;
 
+//        if (true) { // 不能直接throw，需要if(true)过编译
+//            StringBuilder sb = new StringBuilder();
+//            for (int i = 0; i < fields.length; i++) {
+//                PsiField field = fields[i];
+//                sb.append(i).append("\n")
+//                        .append(field.toString()).append("\n")
+//                        .append(field.getType()).append("\n")
+//                        .append(field.getFirstChild()).append("\n");
+//                if (null != field.getFirstChild()) {
+//                    sb.append(field.getFirstChild().getText()).append("\n");
+//                }
+//            }
+//            // 不知道怎么log怎么debug，只能用这种方式，build再引入使用看报错
+//            throw new RuntimeException(sb.toString());
+//        }
+
         for (PsiField field : fields) {
-            annotations = field.getFirstChild().getText().split(" ");
+            // kotlin中field.getFirstChild()可能为null
+            PsiElement element = field.getFirstChild();
+            if (null == element) {
+                continue;
+            }
+
+            annotations = element.getText().split(" ");
 
             for (String annotation : annotations) {
                 id = Utils.getInjectionID(butterKnife, annotation.trim());
