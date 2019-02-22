@@ -8,6 +8,8 @@ Android-ButterKnife-Injections (Support Kotlin)。支持Kotlin，可选初始化
 - Android Studio -> Setting/Preferences -> Plugins -> Browse repositories，搜索 Android-ButterKnife-Injections (Support Kotlin) 安装并重启可用。（暂未审核通过）
 - [下载jar包](https://github.com/ParfoisMeng/Android-ButterKnife-Injections/raw/master/Android-ButterKnife-Injections%20(Support%20Kotlin).jar)，Android Studio -> Setting/Preferences -> Plugins -> Install plugin from disk -> 选择刚刚下载的jar包安装并重启。
 
+#### 功能点
+
 1. 包含Android-ButterKnife-Zelezny-v1.6.0所有功能，且使用方法与Android-ButterKnife-Zelezny一致。
 2. 可选是否初始化ButterKnife(避免原版本使用插件即自动在onCreate中添加ButterKnife.bind(this)，适用于在基类中初始化)。
 3. 可选是否在Lib中使用(使用R2替换R，onClick中使用if-else)。
