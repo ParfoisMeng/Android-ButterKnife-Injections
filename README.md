@@ -15,6 +15,11 @@ Android-ButterKnife-Injections (Support Kotlin)。支持Kotlin，可选初始化
 3. 可选是否在Lib中使用(使用R2替换R，onClick中使用if-else)。
 4. 2、3可在Android Studio设置页配置默认值。
 
+<br>
+
+![截图](https://github.com/ParfoisMeng/Android-ButterKnife-Injections/raw/master/screenshot/1.jpg)
+
+
 --- 
 
 #### 随便说说
