@@ -19,6 +19,7 @@ public class Element {
     public boolean isValid = false;
     public boolean used = true;
     public boolean isClick = true;
+    public boolean useInLib = false;
 
     public Element(String name, String id) {
         // id
@@ -48,7 +49,29 @@ public class Element {
      *
      * @return
      */
-    public String getFullID() {
+    public String getFullIDByUseInLib() {
+        StringBuilder fullID = new StringBuilder();
+        String rPrefix;
+
+        String R = useInLib ? "R2" : "R";
+        if (isAndroidNS) {
+            rPrefix = "android." + R + ".id.";
+        } else {
+            rPrefix = R + ".id.";
+        }
+
+        fullID.append(rPrefix);
+        fullID.append(id);
+
+        return fullID.toString();
+    }
+
+    /**
+     * Create full ID for using in layout XML files
+     *
+     * @return
+     */
+    public String getFullIDWithR() {
         StringBuilder fullID = new StringBuilder();
         String rPrefix;
 
@@ -56,6 +79,27 @@ public class Element {
             rPrefix = "android.R.id.";
         } else {
             rPrefix = "R.id.";
+        }
+
+        fullID.append(rPrefix);
+        fullID.append(id);
+
+        return fullID.toString();
+    }
+
+    /**
+     * Create full ID for using in layout XML files
+     *
+     * @return
+     */
+    public String getFullIDWithR2() {
+        StringBuilder fullID = new StringBuilder();
+        String rPrefix;
+
+        if (isAndroidNS) {
+            rPrefix = "android.R2.id.";
+        } else {
+            rPrefix = "R2.id.";
         }
 
         fullID.append(rPrefix);

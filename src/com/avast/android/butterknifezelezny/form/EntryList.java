@@ -26,6 +26,7 @@ public class EntryList extends JPanel {
     protected ArrayList<Entry> mEntries = new ArrayList<Entry>();
     protected boolean mCreateHolder = false;
     protected boolean mInitButterKnife = false;
+    protected boolean mUseInLib = false;
     protected String mPrefix = null;
     protected IConfirmListener mConfirmListener;
     protected ICancelListener mCancelListener;
@@ -34,8 +35,10 @@ public class EntryList extends JPanel {
     protected JLabel mPrefixLabel;
     protected JCheckBox mHolderCheck;
     protected JCheckBox mInitButterKnifeCheck;
+    protected JCheckBox mUserInLibCheck;
     protected JLabel mHolderLabel;
     protected JLabel mButterKnifeLabel;
+    protected JLabel mUserInLibLabel;
     protected JButton mConfirm;
     protected JButton mCancel;
     protected EntryHeader mEntryHeader;
@@ -72,7 +75,8 @@ public class EntryList extends JPanel {
         mConfirmListener = confirmListener;
         mCancelListener = cancelListener;
 
-        mInitButterKnife= Utils.isInitButterKnifeDefault();
+        mInitButterKnife = Utils.isInitButterKnifeDefault();
+        mUseInLib = Utils.useInLibDefault();
         if (elements != null) {
             mElements.addAll(elements);
         }
@@ -153,7 +157,6 @@ public class EntryList extends JPanel {
         mHolderCheck.setPreferredSize(new Dimension(32, 26));
         mHolderCheck.setSelected(mCreateHolder);
         mHolderCheck.addChangeListener(new CheckHolderListener());
-
         mHolderLabel = new JLabel();
         mHolderLabel.setText("Create ViewHolder");
 
@@ -161,10 +164,15 @@ public class EntryList extends JPanel {
         mInitButterKnifeCheck.setPreferredSize(new Dimension(32, 26));
         mInitButterKnifeCheck.setSelected(mInitButterKnife);
         mInitButterKnifeCheck.addChangeListener(new CheckButterKnifeListener());
-
         mButterKnifeLabel = new JLabel();
         mButterKnifeLabel.setText("Init ButterKnife at current class");
 
+        mUserInLibCheck = new JBCheckBox();
+        mUserInLibCheck.setPreferredSize(new Dimension(32, 26));
+        mUserInLibCheck.setSelected(mUseInLib);
+        mUserInLibCheck.addChangeListener(new CheckUseInLibListener());
+        mUserInLibLabel = new JLabel();
+        mUserInLibLabel.setText("Use in lib (R -> R2)");
 
         JPanel holderPanel = new JPanel();
         holderPanel.setLayout(new BoxLayout(holderPanel, BoxLayout.LINE_AXIS));
@@ -181,6 +189,14 @@ public class EntryList extends JPanel {
         butterKnifePanel.add(mButterKnifeLabel);
         butterKnifePanel.add(Box.createHorizontalGlue());
         add(butterKnifePanel, BorderLayout.PAGE_END);
+
+        JPanel useInLibPanel = new JPanel();
+        useInLibPanel.setLayout(new BoxLayout(useInLibPanel, BoxLayout.LINE_AXIS));
+        useInLibPanel.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 10));
+        useInLibPanel.add(mUserInLibCheck);
+        useInLibPanel.add(mUserInLibLabel);
+        useInLibPanel.add(Box.createHorizontalGlue());
+        add(useInLibPanel, BorderLayout.PAGE_END);
 
         mCancel = new JButton();
         mCancel.setAction(new CancelAction());
@@ -231,6 +247,13 @@ public class EntryList extends JPanel {
     }
     // classes
 
+    public class CheckUseInLibListener implements ChangeListener {
+        @Override
+        public void stateChanged(ChangeEvent event) {
+            mUseInLib = mUserInLibCheck.isSelected();
+        }
+    }
+
     public class CheckButterKnifeListener implements ChangeListener {
         @Override
         public void stateChanged(ChangeEvent event) {
@@ -271,7 +294,7 @@ public class EntryList extends JPanel {
 
             if (valid) {
                 if (mConfirmListener != null) {
-                    mConfirmListener.onConfirm(mProject, mEditor, mElements, mPrefix, mCreateHolder, mInitButterKnife);
+                    mConfirmListener.onConfirm(mProject, mEditor, mElements, mPrefix, mCreateHolder, mInitButterKnife, mUseInLib);
                 }
             }
         }

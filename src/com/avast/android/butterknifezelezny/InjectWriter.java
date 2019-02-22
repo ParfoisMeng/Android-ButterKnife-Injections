@@ -26,8 +26,9 @@ public class InjectWriter extends WriteCommandAction.Simple {
     protected String mFieldNamePrefix;
     protected boolean mCreateHolder;
     protected boolean mInitButterKnife;
+    protected boolean mUseInLib;
 
-    public InjectWriter(PsiFile file, PsiClass clazz, String command, ArrayList<Element> elements, String layoutFileName, String fieldNamePrefix, boolean createHolder, boolean initButterKnife) {
+    public InjectWriter(PsiFile file, PsiClass clazz, String command, ArrayList<Element> elements, String layoutFileName, String fieldNamePrefix, boolean createHolder, boolean initButterKnife, boolean useInLib) {
         super(clazz.getProject(), command);
 
         mFile = file;
@@ -39,6 +40,7 @@ public class InjectWriter extends WriteCommandAction.Simple {
         mFieldNamePrefix = fieldNamePrefix;
         mCreateHolder = createHolder;
         mInitButterKnife = initButterKnife;
+        mUseInLib = useInLib;
     }
 
     @Override
@@ -74,7 +76,7 @@ public class InjectWriter extends WriteCommandAction.Simple {
             method.append("@butterknife.OnClick(");
             for (Element element : mElements) {
                 if (element.isClick) {
-                    method.append(element.getFullID() + ")");
+                    method.append(element.getFullIDByUseInLib() + ")");
                 }
             }
             method.append("public void onClick() {}");
@@ -85,19 +87,35 @@ public class InjectWriter extends WriteCommandAction.Simple {
                 if (element.isClick) {
                     currentCount++;
                     if (currentCount == Utils.getClickCount(mElements)) {
-                        method.append(element.getFullID() + "})");
+                        method.append(element.getFullIDByUseInLib() + "})");
                     } else {
-                        method.append(element.getFullID() + ",");
+                        method.append(element.getFullIDByUseInLib() + ",");
                     }
                 }
             }
-            method.append("public void onClick(android.view.View view) {switch (view.getId()){");
-            for (Element element : mElements) {
-                if (element.isClick) {
-                    method.append("case " + element.getFullID() + ": break;");
+            if (mUseInLib) {
+                method.append("public void onClick(android.view.View view) {int viewId = view.getId();");
+                currentCount = 0;
+                for (Element element : mElements) {
+                    if (element.isClick) {
+                        currentCount++;
+                        if (currentCount == Utils.getClickCount(mElements)) {
+                            method.append("if (viewId == " + element.getFullIDWithR() + ") { \n }");
+                        } else {
+                            method.append("if (viewId == " + element.getFullIDWithR() + ") { \n } else ");
+                        }
+                    }
                 }
+                method.append("}");
+            } else {
+                method.append("public void onClick(android.view.View view) {switch (view.getId()){");
+                for (Element element : mElements) {
+                    if (element.isClick) {
+                        method.append("case " + element.getFullIDByUseInLib() + ": break;");
+                    }
+                }
+                method.append("}}");
             }
-            method.append("}}");
         }
 
         mClass.add(mFactory.createMethodFromText(method.toString(), mClass));
@@ -185,7 +203,7 @@ public class InjectWriter extends WriteCommandAction.Simple {
             injection.append('@');
             injection.append(butterKnife.getFieldAnnotationCanonicalName());
             injection.append('(');
-            injection.append(element.getFullID());
+            injection.append(element.getFullIDByUseInLib());
             injection.append(") ");
             if (element.nameFull != null && element.nameFull.length() > 0) { // custom package+class
                 injection.append(element.nameFull);

@@ -298,6 +298,15 @@ public class Utils {
         }
     }
 
+    public static boolean useInLibDefault() {
+        String value = PropertiesComponent.getInstance().getValue(Settings.USE_IN_LIB, "false");
+        if (value.equals("true")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     /**
      * Parse ID of injected element (eg. R.id.text)
      *

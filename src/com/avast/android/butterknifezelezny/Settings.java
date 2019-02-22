@@ -18,12 +18,14 @@ public class Settings implements Configurable {
 
     public static final String PREFIX = "butterknifezelezny_prefix";
     public static final String VIEWHOLDER_CLASS_NAME = "butterknifezelezny_viewholder_class_name";
-    public static final String INIT_BUTTERKNIFE = "true";
+    public static final String INIT_BUTTERKNIFE = "init_butterknife";
+    public static final String USE_IN_LIB = "use_in_lib";
 
     private JPanel mPanel;
     private JTextField mHolderName;
     private JTextField mPrefix;
     private JComboBox mComboBox;
+    private JComboBox useInLibComboBox;
 
     @Nls
     @Override
@@ -54,6 +56,7 @@ public class Settings implements Configurable {
         PropertiesComponent.getInstance().setValue(PREFIX, mPrefix.getText());
         PropertiesComponent.getInstance().setValue(VIEWHOLDER_CLASS_NAME, mHolderName.getText());
         PropertiesComponent.getInstance().setValue(INIT_BUTTERKNIFE, mComboBox.getSelectedItem().toString());
+        PropertiesComponent.getInstance().setValue(USE_IN_LIB, useInLibComboBox.getSelectedItem().toString());
     }
 
     @Override
@@ -65,7 +68,11 @@ public class Settings implements Configurable {
         } else {
             mComboBox.setSelectedIndex(1);
         }
-
+        if (Utils.useInLibDefault()) {
+            useInLibComboBox.setSelectedIndex(1);
+        } else {
+            useInLibComboBox.setSelectedIndex(0);
+        }
     }
 
     @Override
