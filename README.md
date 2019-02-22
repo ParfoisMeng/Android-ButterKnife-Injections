@@ -3,6 +3,18 @@ Android-ButterKnife-Plugin-Plus-KT，支持Kotlin。
 
 ---
 
+#### 使用方法
+- Android Studio -> Setting/Preferences -> Plugins -> Browse repositories，搜索 Android-ButterKnife-Plugin-Plus-KT 安装并重启可用。（暂未审核通过）
+- [下载jar包](https://github.com/ParfoisMeng/Android-ButterKnife-Plugin-Plus-KT/raw/master/Android-ButterKnife-Plugin-Plus-KT.jar)，Android Studio -> Setting/Preferences -> Plugins -> Install plugin from disk -> 选择刚刚下载的jar包安装并重启。
+
+其他使用方法与Android-ButterKnife-Zelezny一致。
+
+PS：包含Android-ButterKnife-Zelezny-v1.6.0所有功能。另可配置选择是否初始化ButterKnife(避免原版本使用插件即自动在onCreate中添加ButterKnife.bind(this)，适用于在基类中初始化)。
+
+--- 
+
+#### 随便说说
+
 公司要App优化。但原代码里大量14-16年的老代码，质量极差，耦合极重。这种代码怎么可能有性能？
 
 决定更新。原意直接上MVVM，甚至激进的想用androidX，奈何阻力太大，弃之。由于公司App业务功能相对独立，很符合组件化的思路，但组件化的坡度略陡，所幸发现了[CC渐进式组件化改造方案](https://github.com/luckybilly/CC)（谢谢大佬），开搞。
@@ -52,5 +64,3 @@ Kotlin刚被Google认亲的时候就已开始接触学习与使用，能清晰�
         }
         
 ```
-
-PS：此种项目不知如何配置git忽略，索性全都上传了。如有需要下载源码后自行清理吧。

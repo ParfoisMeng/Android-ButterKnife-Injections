@@ -6,7 +6,7 @@
         ParfoisMeng
     </vendor>
 
-    <description><![CDATA[Android-ButterKnife-Plugin-Plus，支持Kotlin。个人情景：基类kt，子类java，原插件无法使用。<br>]]></description>
+    <description><![CDATA[Android-ButterKnife-Plugin-Plus-KT，支持Kotlin。<br>个人情景：基类kt，子类java，原插件无法使用。<br>]]></description>
 
     <change-notes><![CDATA[
       <b>1.0.0</b>
