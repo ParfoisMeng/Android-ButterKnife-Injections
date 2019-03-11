@@ -1,18 +1,18 @@
-# Android-ButterKnife-Injections (Support Kotlin)
-Android-ButterKnife-Injections (Support Kotlin)。支持Kotlin，可选初始化，可选R/R2。
+# Android ButterKnife Injections (Support Kotlin)
+Android ButterKnife Injections (Support Kotlin)。支持Kotlin，可选初始化，可选R/R2。
 
 ---
 
 #### 使用方法
 
-- Android Studio -> Setting/Preferences -> Plugins -> Browse repositories，搜索 Android-ButterKnife-Injections(作者是ParfoisMeng)安装并重启可用。
+- Android Studio -> Setting/Preferences -> Plugins -> Browse repositories，搜索 Android ButterKnife Injections (作者是ParfoisMeng)安装并重启可用。
 - [下载jar包](https://github.com/ParfoisMeng/Android-ButterKnife-Injections/raw/master/Android-ButterKnife-Injections.jar)，Android Studio -> Setting/Preferences -> Plugins -> Install plugin from disk -> 选择刚刚下载的jar包安装并重启。
 
 #### 功能点
 
-1. 包含Android-ButterKnife-Zelezny-v1.6.0所有功能，且使用方法与Android-ButterKnife-Zelezny一致。
-2. 可选是否初始化ButterKnife(避免原版本使用插件即自动在onCreate中添加ButterKnife.bind(this)，适用于在基类中初始化)。
-3. 可选是否在Lib中使用(使用R2替换R，onClick中使用if-else)。
+1. 包含 Android ButterKnife Zelezny v1.6.0 所有功能，且使用方法与 Android ButterKnife Zelezny 一致。
+2. 可选是否初始化 ButterKnife (避免原版本使用插件即自动在`onCreate`中添加`ButterKnife.bind(this)`,适用于在基类中初始化)。
+3. 可选是否在 Lib 中使用(使用`R2`替换`R`,`onClick`中使用`if-else`)。
 4. 2、3可在Android Studio设置页配置默认值。
 
 <br>

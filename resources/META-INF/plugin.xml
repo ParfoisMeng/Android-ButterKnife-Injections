@@ -1,46 +1,68 @@
 <idea-plugin>
     <id>com.github.parfoismeng.plugin.butterknife</id>
-    <name>Android-ButterKnife-Injections (Support Kotlin)</name>
-    <version>1.0</version>
+    <name>Android ButterKnife Injections (Support Kotlin)</name>
+    <version>1.0.1</version>
     <vendor email="youshi520000@163.com" url="https://github.com/ParfoisMeng">
         ParfoisMeng
     </vendor>
 
     <description>
         <![CDATA[
-            Android-ButterKnife-Injections (Support Kotlin)<br>
+            <h2>Android ButterKnife Injections (Support Kotlin)</h2>
             <br>
+            <h3>English Description:</h3>
             Applicable when the parent class is a kt file and the child class is a java file.<br>
             The original plugin could not be used, and I have not found a plugin that meets my needs. Simply self-clone the "android-butterknife-zelezny" source code, modify the adjustment to make this plugin.<br>
-        ]]>
-    </description>
-
-    <change-notes>
-        <![CDATA[
-            <b>1.0.0</b>
+            <br>
+            <b>Function:</b>
             <ul>
                 <li>Includes all features of Android ButterKnife Zelezny v1.6.0.</li>
                 <li>Add function allows you to choose whether to initialize the butterKnife in activities/fragments.</li>
                 <li>Add function allows you to choose whether to use ButterKnife in Lib (about R or R2).</li>
                 <li>In the Android Studio settings interface, you can set the default value of the function.</li>
-                <li>No error is reported when the parent class is a Activity/Fragment/Adapter Java class of the Kotlin file.</li>
+                <!--<li>No error is reported when the parent class is a Activity/Fragment/Adapter Java class of the Kotlin file.</li>-->
+            </ul>
+
+            <br>
+            <hr />
+
+            <h3>中文说明：</h3>
+            适用于父类为kt文件，子类为java文件的情况。<br>
+            原插件不能正常使用，我也没有找到能满足需求的插件。我克隆了“android-butterknife-zelezny”的源码，在其基础上修改调整后，发布了这个插件。<br>
+            <br>
+            <b>功能：</b>
+            <ul>
+                <li>包含Android ButterKnife Zelezny v1.6.0的所有功能。</li>
+                <li>可选是否初始化ButterKnife(避免原版本使用插件即自动在onCreate中添加ButterKnife.bind(this)，适用于在基类中初始化)。</li>
+                <li>可选是否在Lib中使用(使用R2替换R，onClick中使用if-else)。</li>
+                <li>2、3可在Android Studio设置页配置默认值。</li>
+            </ul>
+
+            <br>
+            <hr />
+
+            <h4>Source code: <a href="https://github.com/ParfoisMeng/Android-ButterKnife-Injections">GitHub Page</a></h4>
+        ]]>
+    </description>
+
+    <change-notes>
+        <![CDATA[
+            <b>1.0.1</b>
+            <ul>
+                <li>Update the Chinese</li>
+            </ul>
+            <b>1.0.0</b>
+            <ul>
+                <li>Initial commit</li>
             </ul>
         ]]>
     </change-notes>
 
-    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
     <idea-version since-build="173.0"/>
 
-    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
-         on how to target different products -->
-    <!-- uncomment to enable plugin in all products
-    <depends>com.intellij.modules.lang</depends>
-    -->
-
     <actions>
-        <!-- Add your actions here -->
         <action class="com.avast.android.butterknifezelezny.InjectAction" id="AddInjectionsAction"
-                text="ButterKnife Injections (KT by ParfoisMeng)"
+                text="ButterKnife Injections (by ParfoisMeng)"
                 icon="/icons/butterknife-zelezny.png"
                 description="Plugin for generating ButterKnife injections from selected layout XMLs in activities/fragments/adapters">
             <keyboard-shortcut
