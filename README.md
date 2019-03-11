@@ -3,6 +3,8 @@ Android ButterKnife Injections (Support Kotlin)。支持Kotlin，可选初始化
 
 ---
 
+> 如果本插件对您有帮助，请给个star吧。顺便如果能在[JetBrains Plugins Repository](https://plugins.jetbrains.com/plugin/12012-android-butterknife-injections-support-kotlin-)评个5星就更好啦(😆)。
+
 #### 使用方法
 
 - Android Studio -> Setting/Preferences -> Plugins -> Browse repositories，搜索 Android ButterKnife Injections (作者是ParfoisMeng)安装并重启可用。
