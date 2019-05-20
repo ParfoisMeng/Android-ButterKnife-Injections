@@ -1,9 +1,11 @@
 # Android ButterKnife Injections (Support Kotlin)
 Android ButterKnife Injections (Support Kotlin)。支持Kotlin，可选初始化，可选R/R2。
 
----
-
+> 关于支持Kotlin，插件的说明文档中有写明，是指“适用于父类为kt文件，子类为java文件的情况”。至于Kotlin类，有更好的`kotlinx`为什么不用呢？
+> 
 > 如果本插件对您有帮助，请给个star吧。顺便如果能在[JetBrains Plugins Repository](https://plugins.jetbrains.com/plugin/12012-android-butterknife-injections-support-kotlin-)评个5星就更好啦(😆)。
+
+- - - - - 
 
 #### 使用方法
 
@@ -22,7 +24,7 @@ Android ButterKnife Injections (Support Kotlin)。支持Kotlin，可选初始化
 ![截图](https://github.com/ParfoisMeng/Android-ButterKnife-Injections/raw/master/screenshot/1.jpg)
 
 
---- 
+------ 
 
 #### 随便说说
 
