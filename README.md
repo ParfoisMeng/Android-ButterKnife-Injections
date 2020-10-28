@@ -5,6 +5,8 @@ Android ButterKnife Injections (Support Kotlin)。支持Kotlin，可选初始化
 > 
 > 如果本插件对您有帮助，请给个star吧。顺便如果能在[JetBrains Plugins Repository](https://plugins.jetbrains.com/plugin/12012-android-butterknife-injections-support-kotlin-)评个5星就更好啦(😆)。
 
+<font color='red'>**!!! AS 4.1 兼容有问题，因为原库早已不更新，目前暂无修复方案。!!!**</font>
+
 - - - - - 
 
 #### 使用方法
