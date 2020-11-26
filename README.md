@@ -5,11 +5,17 @@ Android ButterKnife Injections (Support Kotlin)。支持Kotlin，可选初始化
 > 
 > 如果本插件对您有帮助，请给个star吧。顺便如果能在[JetBrains Plugins Repository](https://plugins.jetbrains.com/plugin/12012-android-butterknife-injections-support-kotlin-)评个5星就更好啦(😆)。
 
-<font color='red'>**!!! AS 4.1 兼容有问题，因为原库早已不更新，目前暂无修复方案。!!!**</font>
+- - - - - 
+
+## AS 4.1 兼容方案
+
+- MAC：[下载jar包](https://github.com/ParfoisMeng/Android-ButterKnife-Injections/raw/master/Android-ButterKnife-Injections.jar)，粘贴至 "~/Applications/Android Studio.app/Contents/plugins" 路径下，重启 AS 即可。
+- Windows：[下载jar包](https://github.com/ParfoisMeng/Android-ButterKnife-Injections/raw/master/Android-ButterKnife-Injections.jar)，粘贴至 "C:\Users\username\AppData\Roaming\Google\AndroidStudio4.1\plugins" 路径下，重启 AS 即可。
 
 - - - - - 
 
 #### 使用方法
+> AS 4.1 兼容有问题，请按上方说明操作。
 
 - Android Studio -> Setting/Preferences -> Plugins -> Browse repositories，搜索 Android ButterKnife Injections (作者是ParfoisMeng)安装并重启可用。
 - [下载jar包](https://github.com/ParfoisMeng/Android-ButterKnife-Injections/raw/master/Android-ButterKnife-Injections.jar)，Android Studio -> Setting/Preferences -> Plugins -> Install plugin from disk -> 选择刚刚下载的jar包安装并重启。
