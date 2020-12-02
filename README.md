@@ -11,6 +11,7 @@ Android ButterKnife Injections (Support Kotlin)。支持Kotlin，可选初始化
 
 - MAC：[下载jar包](https://github.com/ParfoisMeng/Android-ButterKnife-Injections/raw/master/Android-ButterKnife-Injections.jar)，粘贴至 "~/Applications/Android Studio.app/Contents/plugins" 路径下，重启 AS 即可。
 - Windows：[下载jar包](https://github.com/ParfoisMeng/Android-ButterKnife-Injections/raw/master/Android-ButterKnife-Injections.jar)，粘贴至 "C:\Users\username\AppData\Roaming\Google\AndroidStudio4.1\plugins" 路径下，重启 AS 即可。
+> 清除报错：删除 ~/Library/Application Support/Google/AndroidStudio4.1/plugins 下报错的插件。
 
 - - - - - 
 
