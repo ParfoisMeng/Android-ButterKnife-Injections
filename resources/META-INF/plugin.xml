@@ -58,6 +58,8 @@
         ]]>
     </change-notes>
 
+    <depends>com.intellij.modules.java</depends>
+    
     <idea-version since-build="173.0"/>
 
     <actions>
